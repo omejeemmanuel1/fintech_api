@@ -4,12 +4,12 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm install
+RUN yarn install --production
 
 COPY . .
 
-RUN npm run build
+RUN yarn run compile
 
 EXPOSE 8999
 
-CMD ["npm", "run", "start"]
+CMD ["yarn", "run", "start"]
