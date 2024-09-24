@@ -6,10 +6,10 @@ COPY package*.json ./
 
 RUN yarn install --production
 
-COPY . .
+COPY dist ./dist
 
-RUN yarn run compile
+COPY .env ./
 
 EXPOSE 8999
 
-CMD ["yarn", "run", "start"]
+CMD ["node", "dist/app.js"]
